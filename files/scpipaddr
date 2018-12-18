@@ -1,0 +1,9 @@
+#! /usr/bin/expect
+
+set IP   [lindex $argv 0]
+spawn scp -i id_rsa_oci5 opc@$IP:/home/opc/ipaddr2 .
+expect "(yes/no)?"
+send "yes\n"
+expect "~]$"
+send "\r\n"
+exit
